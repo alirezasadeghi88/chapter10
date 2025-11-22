@@ -4,9 +4,7 @@ package test;
 //import model.Faculty;
 //import model.Student;
 
-import model.Book;
-import model.Librarian;
-import model.Member;
+import model.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,22 +25,40 @@ public class Main {
 //            if (s != null)
 //                System.out.println("_" + s.getName());
 //        }
-        Librarian sara = new Librarian("Sara", 5);
-        Member esmaeil = new Member("Esmaeil", 3);
-        Member alireza = new Member("Alireza", 3);
+//        Librarian sara = new Librarian("Sara", 5);
+//        Member esmaeil = new Member("Esmaeil", 3);
+//        Member alireza = new Member("Alireza", 3);
+//
+//        Book javaBook = new Book("Java Basics", 10);
+//
+//        sara.manageBook(javaBook);
+//        esmaeil.borrowBook(javaBook);
+//        alireza.borrowBook(javaBook);
+//
+//        System.out.println("Book" + javaBook.getTitle());
+//        System.out.println("Managed by:" + javaBook.getLibrarian().getName());
+//        System.out.println("Borrowed by:");
+//        for (Member m: javaBook.getBorrowers()) {
+//            if (m != null)
+//                System.out.println("_" + m.getName());
+//        }
 
-        Book javaBook = new Book("Java Basics", 10);
+        Seller ali = new Seller("Ali", 5);
+        Customer esmaeil = new Customer("Esmaeil", 3);
+        Customer alireza = new Customer("Alireza", 3);
 
-        sara.manageBook(javaBook);
-        esmaeil.borrowBook(javaBook);
-        alireza.borrowBook(javaBook);
+        Product laptop = new Product("Laptop", 10);
 
-        System.out.println("Book" + javaBook.getTitle());
-        System.out.println("Managed by:" + javaBook.getLibrarian().getName());
-        System.out.println("Borrowed by:");
-        for (Member m: javaBook.getBorrowers()) {
-            if (m != null)
-                System.out.println("_" + m.getName());
+        ali.OfferProducts(laptop);
+        esmaeil.buyProduct(laptop);
+        alireza.buyProduct(laptop);
+
+        System.out.println("Product" + laptop.getTitle());
+        System.out.println("Sold by" + laptop.getSeller().getName());
+        System.out.println("Buyers");
+        for (Customer c : laptop.getBuyers()) {
+            if (c != null)
+                System.out.println("_" + c.getName());
         }
     }
 }
